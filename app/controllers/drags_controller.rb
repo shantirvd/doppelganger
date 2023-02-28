@@ -8,13 +8,13 @@ class DragsController < ApplicationController
   end
 
   def create
-    @drag = Drag.new(params_drag)
+    # @drag = Drag.new(params_drag)
 
-    if @drag.save
-      redirect_to drag_path(@drag)
-    else
-      render :new
-    end
+    # if @drag.save
+    #   redirect_to drag_path(@drag)
+    # else
+    #   render :new
+    # end
   end
 
   def index
