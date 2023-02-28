@@ -1,5 +1,5 @@
 class DragsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def new
     @drag = Drag.new
@@ -9,6 +9,8 @@ class DragsController < ApplicationController
 
   def create
     @drag = Drag.new(params_drag)
+    @drag.user = current_user
+    authorize @drag
     if @drag.save
       redirect_to drag_path(@drag)
     else
@@ -34,6 +36,6 @@ class DragsController < ApplicationController
   private
 
   def params_drag
-    params.require(:drag).permit(:nickname, :city, :radius, :description, :specialty, :hourly_rate)
+    params.require(:drag).permit(:nickname, :city, :radius, :description, :specialty, :hourly_rate, :photos)
   end
 end
