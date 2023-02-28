@@ -1,6 +1,6 @@
-class CreateDoppelgs < ActiveRecord::Migration[7.0]
+class CreateDrags < ActiveRecord::Migration[7.0]
   def change
-    create_table :doppelgs do |t|
+    create_table :drags do |t|
       t.string :nickname
       t.string :city
       t.integer :radius
