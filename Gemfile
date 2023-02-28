@@ -4,6 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 gem 'faker'
 
+# Environment
+gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary
+gem "cloudinary"
+
 # Authorization
 gem "pundit"
 
