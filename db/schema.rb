@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_171331) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_100418) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,25 +20,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_171331) do
     t.date "end_time"
     t.text "location"
     t.bigint "user_id", null: false
-    t.bigint "doppelg_id", null: false
+    t.bigint "drags_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doppelg_id"], name: "index_bookings_on_doppelg_id"
+    t.index ["drags_id"], name: "index_bookings_on_drags_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "doppelgs", force: :cascade do |t|
+  create_table "drags", force: :cascade do |t|
     t.string "nickname"
     t.string "city"
     t.integer "radius"
     t.text "description"
     t.string "specialty"
-    t.string "celebrity"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "hourly_rate"
-    t.index ["user_id"], name: "index_doppelgs_on_user_id"
+    t.index ["user_id"], name: "index_drags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_171331) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "doppelgs"
+  add_foreign_key "bookings", "drags", column: "drags_id"
   add_foreign_key "bookings", "users"
-  add_foreign_key "doppelgs", "users"
+  add_foreign_key "drags", "users"
 end
