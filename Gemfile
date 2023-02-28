@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+# Environment
+gem "dotenv-rails", groups: [:development, :test]
+
 # Authorization
 gem "pundit"
 
