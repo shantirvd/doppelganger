@@ -6,6 +6,6 @@ class Drag < ApplicationRecord
   validates :city, presence: true
   validates :radius, comparison: { greater_than: 5 }
   validates :specialty, presence: true, inclusion: {
-    in: %w[singing dancing comedy doppelganger acrobatics]
+    in: %w[singing dancing comedy doppelganger acrobatics bingo]
   }
 end

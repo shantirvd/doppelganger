@@ -19,9 +19,14 @@ class DragsController < ApplicationController
   end
 
   def index
+    @drags = Drag.all
+    @drags = policy_scope(Drag)
   end
 
   def show
+    raise
+    @drag = Drag.find(params[:id])
+    authorize @drag
   end
 
   def edit
