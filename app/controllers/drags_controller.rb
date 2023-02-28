@@ -1,4 +1,4 @@
-class DoppelgsController < ApplicationController
+class DragsController < ApplicationController
   def new
   end
 
