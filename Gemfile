@@ -6,6 +6,9 @@ ruby "3.1.2"
 # Environment
 gem "dotenv-rails", groups: [:development, :test]
 
+# Cloudinary
+gem "cloudinary"
+
 # Authorization
 gem "pundit"
 
