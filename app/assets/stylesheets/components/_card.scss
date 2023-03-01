@@ -1,0 +1,31 @@
+.card {
+  padding-bottom: 1em;
+  border-radius: 3em;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.card-body-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-price {
+  color: #89023E;
+}
+
+.card-img {
+  border-radius: 3em;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body-top h5,
+.card-body-top h6 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: bolder;
+}
+
+.card p {
+  margin-bottom: 1em;
+}
