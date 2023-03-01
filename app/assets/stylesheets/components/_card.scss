@@ -19,6 +19,10 @@
   object-fit: cover;
 }
 
+.card-body-top h5 {
+  color: black;
+}
+
 .card-body-top h5,
 .card-body-top h6 {
   margin-top: 0.5em;
@@ -28,4 +32,17 @@
 
 .card p {
   margin-bottom: 1em;
+}
+
+#card-specialty {
+  font-weight: bolder;
+  color: #FF90B3;
+}
+
+#card-text {
+  color: black;
+}
+
+.link-to-div {
+  text-decoration: none;
 }

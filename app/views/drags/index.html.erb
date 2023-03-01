@@ -1,12 +1,21 @@
 <h1>Find the perfect drag for your event</h1>
-<ul>
-  <% @drags.each do |drag| %>
-    <li>
-      <p><strong><%= link_to "#{drag.nickname}", drag_path(drag) %></strong></p>
-      <p>Accepts events <%= drag.radius %> km around <%= drag.city %></p>
-      <p><%= drag.hourly_rate %>€ per hour</p>
-      <p>Specialty: <%= drag.specialty %></p>
-      <p><%= cl_image_tag drag.photo.key %> </p>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="cards">
+    <% @drags.each do |drag| %>
+      <%= link_to drag_path(drag), class: "link-to-div" do %>
+        <div class="card" style="width: 25rem;">
+            <%= cl_image_tag drag.photo.key, class: "card-img"%>
+            <div class="card-body">
+              <div class="card-body-top">
+                <h5 class="card-title"><%= drag.nickname%></h5>
+                <h6 class="card-price"><%= drag.hourly_rate %>€ per hour</h5>
+              </div>
+              <div>
+              <p id="card-text">Accepts events <%= drag.radius %> km around <%= drag.city %></p>
+              <p id="card-specialty">Specialty: <%= drag.specialty %></p>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
