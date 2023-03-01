@@ -8,10 +8,10 @@
               <div class="card-body-top">
                 <h5 class="card-title"><%= drag.nickname%></h5>
                 <h6 class="card-price"><%= drag.hourly_rate %>€ per hour</h5>
+                <div class=specialty-tag-index> <%= drag.specialty %></div>
               </div>
               <div>
-              <p id="card-text">Accepts events <%= drag.radius %> km around <%= drag.city %></p>
-              <p id="card-specialty">Specialty: <%= drag.specialty %></p>
+              <p id="card-text">Accepts events <%= drag.radius %> km around <strong><%= drag.city %></strong></p>
               </div>
             </div>
         </div>
