@@ -8,6 +8,8 @@
 require 'faker'
 require "open-uri"
 
+images = ["https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR8694.jpg","https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR8405.jpg","https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR7098.jpg", "https://broncolor.swiss/assets/img/Gennext/Justin-Bettman/Drag-Queens/_contentWithShareBar23/JUSTIN-BETTMAN-DRAG-QUEENS-1.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR8109.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR7889.jpg", "https://broncolor.swiss/assets/img/Gennext/Justin-Bettman/Drag-Queens/_contentWithShareBar23/JUSTIN-BETTMAN-DRAG-QUEENS-3.jpg", "https://broncolor.swiss/assets/img/Gennext/Justin-Bettman/Drag-Queens/_contentWithShareBar23/JUSTIN-BETTMAN-DRAG-QUEENS-5.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR0724.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR7796.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR6806.jpg", "https://broncolor.swiss/assets/img/Gennext/Justin-Bettman/Drag-Queens/_contentWithShareBar23/JUSTIN-BETTMAN-DRAG-QUEENS-7.jpg", "https://broncolor.swiss/assets/img/Gennext/Justin-Bettman/Drag-Queens/_contentWithShareBar23/JUSTIN-BETTMAN-DRAG-QUEENS-8.jpg", "https://tetu.com/wp-content/uploads/2022/05/RPDR_Kam_8427.jpg", "https://tetu.com/wp-content/uploads/2022/05/03.23_RPDR7603.jpg"]
+
 puts "Cleaning database..."
 
 Drag.destroy_all
@@ -30,8 +32,9 @@ User.destroy_all
   drag.radius = rand(5..100)
   drag.specialty = ["singing", "dancing", "comedy", "doppelganger", "acrobatics", "bingo"].sample
   drag.hourly_rate = rand(60..300)
+  drag.description = Faker::TvShows::BigBangTheory.quote
   puts "generating a picture for #{drag.nickname}..."
-  file = URI.open(Faker::LoremFlickr.image(size: "100x100", search_terms: ['drag-queen']))
+  file = URI.open(images.sample)
   drag.photo.attach(io: file, filename: "drag.png", content_type: "image/png")
   puts "Attributing a user"
   drag.user = user
@@ -39,4 +42,7 @@ User.destroy_all
   drag.save!
   puts "#{drag.nickname} is created"
 end
-puts "10 beautiful drags created"
+puts "10 BEAUTIFULS DRAGS CREATED"
+
+
+# Faker::LoremFlickr.image(search_terms: ['drag_queen'])
