@@ -40,6 +40,6 @@ class DragsController < ApplicationController
   private
 
   def params_drag
-    params.require(:drag).permit(:nickname, :city, :radius, :description, :specialty, :hourly_rate, :photos)
+    params.require(:drag).permit(:nickname, :city, :radius, :description, :specialty, :hourly_rate, :photo)
   end
 end
