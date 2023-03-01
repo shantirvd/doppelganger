@@ -2,19 +2,30 @@
   color: $white;
   font-family: "Maven Pro";
   background-color: $barbie-pink;
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 0px 10px;
   width: auto;
   text-align: center;
-  font-size: 14px;
+  font-size: 17px;
   margin: 5px
 }
 
 .specialty-tag em {
   font-style: italic;
-  font-size: 12px
+  font-size: 14px
 }
 
-#long-tag{
-
+.specialty-tag-index {
+  color: $white;
+  font-family: "Maven Pro";
+  background-color: $barbie-pink;
+  border-radius: 12px;
+  padding: 0px 10px;
+  width: auto;
+  text-align: center;
+  font-size: 17px;
+  margin: 5px;
+  position: absolute;
+  top: 256px;
+  right: 10px;
 }
