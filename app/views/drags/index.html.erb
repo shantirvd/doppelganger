@@ -2,17 +2,20 @@
 <div class="container">
   <div class="cards">
     <% @drags.each do |drag| %>
-    <div class="card" style="width: 25rem;">
-      <%= cl_image_tag drag.photo.key %>
-      <div class="card-body">
-      <%= link_to drag_path(drag) %>
-        <div class="card-body-top">
-          <h5 class="card-title"><%= link_to "#{drag.nickname}", drag_path(drag) %></h5>
-          <h6 class="card-price"><%= drag.hourly_rate %>€ per hour</h5>
+      <%= link_to drag_path(drag), class: "link-to-div" do %>
+        <div class="card" style="width: 25rem;">
+            <%= cl_image_tag drag.photo.key, class: "card-img"%>
+            <div class="card-body">
+              <div class="card-body-top">
+                <h5 class="card-title"><%= drag.nickname%></h5>
+                <h6 class="card-price"><%= drag.hourly_rate %>€ per hour</h5>
+              </div>
+              <div>
+              <p id="card-text">Accepts events <%= drag.radius %> km around <%= drag.city %></p>
+              <p id="card-specialty">Specialty: <%= drag.specialty %></p>
+              </div>
+            </div>
         </div>
-        <p class="card-text">Accepts events <%= drag.radius %> km around <%= drag.city %></p>
-        <p class="card-specialty">Specialty: <%= drag.specialty %></p>
-      </div>
-    </div>
+      <% end %>
     <% end %>
 </div>
