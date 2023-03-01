@@ -3,7 +3,7 @@
     <% @drags.each do |drag| %>
       <%= link_to drag_path(drag), class: "link-to-div" do %>
         <div class="card" style="width: 25rem;">
-            <%= cl_image_tag drag.photo.key, class: "card-img"%>
+            <%= cl_image_tag drag.photo.key, class: "card-img" %>
             <div class="card-body">
               <div class="card-body-top">
                 <h5 class="card-title"><%= drag.nickname%></h5>
