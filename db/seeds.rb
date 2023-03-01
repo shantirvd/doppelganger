@@ -32,7 +32,7 @@ User.destroy_all
   drag.radius = rand(5..100)
   drag.specialty = ["singing", "dancing", "comedy", "doppelganger", "acrobatics", "bingo"].sample
   drag.hourly_rate = rand(60..300)
-  drag.description = Faker::TvShows::BigBangTheory.quote
+  drag.description = Faker::TvShows::MichaelScott.quote + " " + Faker::TvShows::TheFreshPrinceOfBelAir.quote + " " + Faker::TvShows::Community.quotes
   puts "generating a picture for #{drag.nickname}..."
   file = URI.open(images.sample)
   drag.photo.attach(io: file, filename: "drag.png", content_type: "image/png")

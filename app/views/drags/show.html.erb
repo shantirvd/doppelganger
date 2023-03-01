@@ -1,9 +1,14 @@
-<h1><%= @drag.nickname %></h1>
-<%= cl_image_tag @drag.photo.key %>
-<ul>
-  <li>Accepts performances <%= @drag.radius %>km around <%= @drag.city %></li>
-  <li>Specialties: <%= @drag.specialty %>
-  </li>
-  <li><%= @drag.hourly_rate %>€ per hour</li>
-  <li><%= @drag.description %></li>
-</ul>
+<div class="d-flex">
+  <div>
+    <%= cl_image_tag @drag.photo.key, class: "show-img" %>
+  </div>
+  <div class="flex-grow div-text-section">
+    <h1><%= @drag.nickname %></h1>
+    <div class="d-flex">
+      <div class="specialty-tag d-flex"><%= @drag.specialty %></div>
+      <div class="specialty-tag"><%= @drag.hourly_rate %>€ <em>per hour</em></div>
+      <div class="specialty-tag"><%= @drag.city %> <em>(around <%= @drag.radius %>km)</em></div>
+    </div>
+    <p><%= @drag.description %></p>
+  </div>
+</div>
