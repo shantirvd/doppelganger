@@ -24,7 +24,6 @@ class DragsController < ApplicationController
   end
 
   def show
-    raise
     @drag = Drag.find(params[:id])
     authorize @drag
   end

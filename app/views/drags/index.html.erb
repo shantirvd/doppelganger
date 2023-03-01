@@ -4,8 +4,9 @@
     <li>
       <p><strong><%= drag.nickname %></strong></p>
       <p>Accepts events <%= drag.radius %> km around <%= drag.city %></p>
-      <p><%= drag.hourly_rate %></p>
-      <%= drag.specialty %>
+      <p><%= drag.hourly_rate %>€ per hour</p>
+      <p>Specialty: <%= drag.specialty %></p>
+      <%# <p><%= cl_image_tag drag.photo.key %> </p> %>
     </li>
   <% end %>
 </ul>
