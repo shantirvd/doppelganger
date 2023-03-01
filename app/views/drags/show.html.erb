@@ -1,2 +1,9 @@
-<h1>Doppelgs#show</h1>
-<p>Find me in app/views/doppelgs/show.html.erb</p>
+<h1><%= @drag.nickname %></h1>
+<%= cl_image_tag @drag.photo.key %>
+<ul>
+  <li>Accepts performances <%= @drag.radius %>km around <%= @drag.city %></li>
+  <li>Specialties: <%= @drag.specialty %>
+  </li>
+  <li><%= @drag.hourly_rate %>€ per hour</li>
+  <li><%= @drag.description %></li>
+</ul>

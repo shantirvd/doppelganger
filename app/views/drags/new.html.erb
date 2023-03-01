@@ -1,2 +1,11 @@
-<h1>Doppelgs#new</h1>
-<p>Find me in app/views/doppelgs/new.html.erb</p>
+<h1>New drag</h1>
+<%= simple_form_for [@drag] do |f| %>
+  <%= f.input :nickname %>
+  <%= f.input :photos, as: :file %>
+  <%= f.input :city %>
+  <%= f.input :radius %>
+  <%= f.input :description %>
+  <%= f.input :specialty, :collection => %w[singing dancing comedy doppelganger acrobatics] %>
+  <%= f.input :hourly_rate %>
+  <%= f.submit "Create your drap profile", class: "btn btn-primary" %>
+<% end %>

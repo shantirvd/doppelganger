@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner-components {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 3em;
+}
+
+.banner h1 {
+  margin-bottom: 2em;
+  color: #000000;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-img {
+  height: 50%;
+  width: auto;
+  object-fit: cover;
+}

@@ -1,5 +1,5 @@
 class DragsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :new
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def new
     @drag = Drag.new
@@ -8,19 +8,24 @@ class DragsController < ApplicationController
   end
 
   def create
-    # @drag = Drag.new(params_drag)
-
-    # if @drag.save
-    #   redirect_to drag_path(@drag)
-    # else
-    #   render :new
-    # end
+    @drag = Drag.new(params_drag)
+    @drag.user = current_user
+    authorize @drag
+    if @drag.save
+      redirect_to drag_path(@drag)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
+    @drags = Drag.all
+    @drags = policy_scope(Drag)
   end
 
   def show
+    @drag = Drag.find(params[:id])
+    authorize @drag
   end
 
   def edit
@@ -30,5 +35,11 @@ class DragsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def params_drag
+    params.require(:drag).permit(:nickname, :city, :radius, :description, :specialty, :hourly_rate, :photos)
   end
 end
