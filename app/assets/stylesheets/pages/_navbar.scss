@@ -1,0 +1,53 @@
+
+
+.navbar-lewagon .navbar-brand img {
+  width: 217px;
+}
+
+.navbar{
+  background: #ED9EA5;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 3px;
+width: 1600px;
+height: 80px;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  position: absolute;
+  top: 5px;
+  bottom: 4px;
+  right: 205px;
+}
+
+.search-form-control .form-control {
+  width: 350px;
+  height: 54px;
+  left: 625px;
+  top: 40px;
+  border-radius: 25px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn-flat {
+  color: black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: white;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: white;
+  color: black;
+}
