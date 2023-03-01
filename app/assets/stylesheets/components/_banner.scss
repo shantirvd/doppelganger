@@ -32,7 +32,7 @@
 }
 
 .info {
-  padding-top: 200px;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -40,4 +40,5 @@
 .info .button {
   justify-content: center;
   width: 50%;
+  margin-top: 10px;
 }
