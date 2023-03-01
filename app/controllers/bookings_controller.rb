@@ -22,12 +22,20 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find([:id])
   end
 
   def update
+    @booking = Booking.find([:id])
+    authorize @booking
+    @booking.update(params_booking)
+    redirect_to bookins_path(@booking)
   end
 
   def destroy
+    @booking = Booking.find([:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
