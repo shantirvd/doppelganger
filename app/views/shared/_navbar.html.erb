@@ -9,14 +9,18 @@
       </button>
     </div>
     <div class="col-4">
-      <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+      <%# <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
         <div class="search-form-control form-group">
           <input class="form-control string required mx-auto" type="text" name="search[query]" id="search_query" />
           <button name="button" type="submit" class="btn btn-ghost">
             <i class="fas fa-search"></i> Find your drag queen
-          </button>
-        </div>
-      </form>
+          </button> %>
+          <div class="d-flex search-button">
+            <i class="fas fa-search"></i>
+            <p>Find your drag queen</p>
+          </div>
+        <%# </div>
+      </form> %>
     </div>
     <div class="col-4 d-flex justify-content-end">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
