@@ -1,12 +1,17 @@
 .button {
   display: flex;
   justify-content: center;
-  background-color:#89023E;
+  background:linear-gradient(180deg, #FF90B3, #89023E);
   color: #fff;
   border:none;
-  border-radius:10px;
+  border-radius:40px;
   padding:15px;
   text-decoration: none;
+  font-family: "Tilt Warp"
+}
+
+.button:hover{
+  color: #fff;
 }
 
 .button-round {
