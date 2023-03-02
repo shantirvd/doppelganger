@@ -4,7 +4,11 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @bookings = current_user.bookings
-    # @drag_bookings = current_user.drag.bookings
+    #If user is not a drag
+    @user_bookings = current_user.bookings
+
+    @drag_bookings = current_user.drag&.bookings
+
   end
+
 end

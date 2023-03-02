@@ -6,7 +6,6 @@ class DragsController < ApplicationController
     # skip_authorization
     authorize @drag
   end
-
   
   def create
     @drag = Drag.new(params_drag)
