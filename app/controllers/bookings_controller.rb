@@ -1,46 +1,52 @@
 class BookingsController < ApplicationController
   def new
+    @drag = Drag.find(params[:drag_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
+    @drag = Drag.find(params[:drag_id])
     @booking = Booking.new(params_booking)
-    @booking.drag = params[:drag_id]
+    @booking.drag = @drag
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def index
-    @bookings = Booking.all
+  def index #Dashboard?
+    @booking.user = current_user
+    @bookings = Booking.find(user_id: @booking.user)
     @bookings = policy_scope(Booking)
   end
 
   def edit
-    @booking = Booking.find([:id])
+    @booking = Booking.find(params[:id])
+    @drag = @booking.drag
+    authorize @booking
   end
 
   def update
-    @booking = Booking.find([:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(params_booking)
-    redirect_to bookins_path(@booking)
+    redirect_to dashboard_path
   end
 
   def destroy
-    @booking = Booking.find([:id])
+    @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
 
   def params_booking
-    params.require(:booking).permit(:start_date, :end_date, :location)
+    params.require(:booking).permit(:start_time, :end_time, :location)
   end
 end
