@@ -1,12 +1,8 @@
 <h1>My bookings</h1>
 
-<% @bookings.each do |booking| %>
-  <ul>
-    <li><%= booking.start_time %></li>
-    <li><%= booking.end_time %></li>
-    <li><%= booking.location %></li>
-    <%= cl_image_tag booking.drag.photo.key, class: "card-img" %>
-    <%= link_to 'Edit booking', edit_drag_booking_path(booking.drag, booking) %>
-    <%= link_to 'Delete booking', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-  </ul>
+<% if @drag_bookings.nil? %>
+  <%= render "user-booking-card"%>
+<% else %>
+  <%= render "user-booking-card"%>
+  <%= render "drag-booking-card"%>
 <% end %>
