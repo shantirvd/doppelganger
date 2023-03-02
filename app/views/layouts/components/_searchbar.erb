@@ -1,0 +1,17 @@
+<div class="search-card">
+  <%= form_with url: drags_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :location,
+      params[:location],
+      class: "search-card",
+      placeholder: "Location of your event"
+    %>
+    <%= select_tag :specialty,
+      options_for_select(%w[singing dancing comedy doppelganger acrobatics bingo], params[:specialty]), include_blank: "Choose specialty", #multiple: true,
+      class: "form-control search-card",
+      placeholder: "Choose specialty"
+      %>
+    <%= submit_tag "Go", class: "button-round" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+  <% end %>
+</div>
