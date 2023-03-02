@@ -19,8 +19,16 @@ class DragsController < ApplicationController
   end
 
   def index
-    @drags = Drag.all
     @drags = policy_scope(Drag)
+    if params[:location].present? && params[:specialty].present?
+      @drags = Drag.where(city: params[:location], specialty: params[:specialty])
+    elsif params[:location].present?
+      @drags = Drag.where(city: params[:location])
+    elsif params[:specialty].present?
+      @drags = Drag.where(specialty: params[:specialty])
+    else
+      @drags = Drag.all
+    end
   end
 
   def show
