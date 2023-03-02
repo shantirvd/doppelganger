@@ -7,6 +7,7 @@ class DragsController < ApplicationController
     authorize @drag
   end
 
+  
   def create
     @drag = Drag.new(params_drag)
     @drag.user = current_user

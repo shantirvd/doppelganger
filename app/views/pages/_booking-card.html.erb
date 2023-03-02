@@ -1,0 +1,17 @@
+<% @bookings.each do |booking| %>
+    <div class="booking-card">
+    <%= cl_image_tag booking.drag.photo.key, class: "card-img" %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="booking-card-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+    <%= booking.start_time %>
+    <%= booking.end_time %>
+    <%= booking.location %>
+    <%= cl_image_tag booking.drag.photo.key, class: "card-img" %>
+    <%= link_to 'Edit booking', edit_drag_booking_path(booking.drag, booking) %>
+    <%= link_to 'Delete booking', edit_drag_booking_path(booking.drag, booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+  </ul>
+<% end %>

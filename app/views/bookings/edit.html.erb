@@ -1,2 +1,9 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="container form">
+  <h1>Modify booking</h1>
+  <%= simple_form_for [@drag, @booking] do |f| %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input :location %>
+    <%= f.submit "Update booking", class: "button" %>
+  <% end %>
+</div>

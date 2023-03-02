@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   # resources :pages, only: %i[index home]
   resources :drags do
-    resources :bookings, only: %i[new create index edit update destroy]
+    resources :bookings, only: %i[new create index edit update]
   end
-  # GET "/dashboard" to "pages#dashboard"
+  resources :bookings, only: [:destroy]
+  get "/dashboard", to: "pages#dashboard"
 end
