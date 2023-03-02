@@ -27,7 +27,7 @@ User.destroy_all
   puts "creating a drag queen..."
   drag = Drag.new
   drag.user = user
-  drag.nickname = Faker::FunnyName.two_word_name
+  drag.nickname = Faker::TvShows::RuPaul.queen
   drag.city = Faker::Address.city
   drag.radius = rand(5..100)
   drag.specialty = ["singing", "dancing", "comedy", "doppelganger", "acrobatics", "bingo"].sample
