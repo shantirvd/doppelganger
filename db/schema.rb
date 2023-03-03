@@ -48,12 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_074505) do
     t.date "end_time"
     t.text "location"
     t.bigint "user_id", null: false
-    t.bigint "drag_id", null: false
+    t.bigint "drags_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "booking_date"
     t.string "status", default: "pending"
-    t.index ["drag_id"], name: "index_bookings_on_drag_id"
+    t.index ["drags_id"], name: "index_bookings_on_drags_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -86,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_074505) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "drags"
+  add_foreign_key "bookings", "drags", column: "drags_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "drags", "users"
 end
