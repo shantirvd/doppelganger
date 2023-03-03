@@ -3,6 +3,7 @@
     <li class="text-warning"><%= drag_booking.start_time %></li>
     <li><%= drag_booking.end_time %></li>
     <li><%= drag_booking.location %></li>
+    <li><%= drag_booking.status %></li>
     <%= cl_image_tag drag_booking.drag.photo.key, class: "card-img" %>
     <%= link_to 'Edit booking', edit_drag_booking_path(drag_booking.drag, drag_booking) %>
     <%= link_to 'Delete booking', booking_path(drag_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} %>
