@@ -6,25 +6,28 @@
       </div>
       <div class="booking-info">
         <h5>Booking on <%= drag_booking.booking_date %> </h5>
-        <p>From <%= drag_booking.start_time %> to <%= drag_booking.end_time %></p>
-        <span>
+        <div class="booking-details">
+          <p>with <%= drag_booking.user.first_name %> <%= drag_booking.user.last_name %></p>
+          <p>From <%= drag_booking.start_time %> to <%= drag_booking.end_time %></p>
+        </div>
+        <p>
           <i class="fa-solid fa-location-pin"></i><%= drag_booking.location %>
-        </span>
-         <%= (drag_booking.end_time[0..1].to_i - drag_booking.start_time[0..1].to_i) * drag_booking.drag.hourly_rate %>
+        </p>
+        <p>
+          <i class="fa-solid fa-credit-card"></i><%= (drag_booking.end_time[0..1].to_i - drag_booking.start_time[0..1].to_i) * drag_booking.drag.hourly_rate %>€
+        </p>
       </div>
       <div class="booking-actions">
           <p><%= drag_booking.status %></p>
-          <div>
-            <%= link_to edit_drag_booking_path(drag_booking.drag, drag_booking) do %>
-              <i class="fa-solid fa-pen-to-square"></i>
+          <div class="d-flex justify-content-evenly">
+             <%= link_to accept_path(drag_booking), data: {turbo_method: :patch}, class: "text-decoration-none" do %>
+              <i class="fa-solid fa-check"></i>
             <% end %>
-            <%= link_to booking_path(drag_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"} do %>
-              <i class="fa-solid fa-ban"></i>
+            <%= link_to decline_path(drag_booking), data: {turbo_method: :patch} do %>
+              <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
       </div>
     </div>
-    <%= link_to 'Accept booking', accept_path(drag_booking), data: {turbo_method: :patch} %>
-    <%= link_to 'Decline booking', decline_path(drag_booking), data: {turbo_method: :patch} %>
   <% end %>
 </div>
