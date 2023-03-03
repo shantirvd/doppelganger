@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_115333) do
     t.integer "price"
     t.string "start_time"
     t.string "end_time"
+    t.string "booking_date"
     t.text "location"
     t.bigint "user_id", null: false
     t.bigint "drag_id", null: false
