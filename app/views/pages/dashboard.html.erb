@@ -1,8 +1,11 @@
-<h1>My bookings</h1>
-
-<% if @drag_bookings.nil? %>
-  <%= render "user-booking-card"%>
-<% else %>
-  <%= render "user-booking-card"%>
-  <%= render "drag-booking-card"%>
-<% end %>
+<div class="container">
+  <% if @drag_bookings.nil? %>
+    <h2>My bookings</h2>
+    <%= render "user-booking-card"%>
+  <% else %>
+    <h2>My future performances</h2>
+    <%= render "drag-booking-card"%>
+    <h2>My bookings</h2>
+    <%= render "user-booking-card"%>
+  <% end %>
+</div>

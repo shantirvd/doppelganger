@@ -51,7 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_074505) do
     t.bigint "drag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "booking_date"
     t.string "status", default: "pending"
     t.index ["drag_id"], name: "index_bookings_on_drag_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"

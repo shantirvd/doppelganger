@@ -44,5 +44,31 @@ User.destroy_all
 end
 puts "10 BEAUTIFULS DRAGS CREATED"
 
+puts "creating the test drag"
+user = User.new
+user.first_name = "Test"
+user.last_name = "Test"
+user.email = "test@gmail.com"
+user.password = "password"
+user.save!
+puts "test user created"
+puts "creating the test drag queen..."
+drag = Drag.new
+drag.user = user
+drag.nickname = "Matou la Drag"
+drag.city = "Bourg-en-Bresse"
+drag.radius = rand(5..100)
+drag.specialty = ["singing", "dancing", "comedy", "doppelganger", "acrobatics", "bingo"].sample
+drag.hourly_rate = rand(60..300)
+drag.description = Faker::TvShows::MichaelScott.quote + " " + Faker::TvShows::TheFreshPrinceOfBelAir.quote + " " + Faker::TvShows::Community.quotes
+puts "generating a picture for #{drag.nickname}..."
+file = URI.open(images.sample)
+drag.photo.attach(io: file, filename: "drag.png", content_type: "image/png")
+puts "Attributing a user"
+drag.user = user
+puts "Saving the user"
+drag.save!
+puts "#{drag.nickname} the test drag queen is created"
+
 
 # Faker::LoremFlickr.image(search_terms: ['drag_queen'])

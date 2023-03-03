@@ -1,0 +1,60 @@
+.drag-booking-card {
+  background-color: $powder-pink;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.drag-booking-card h5 {
+  font-family: "Maven Pro";
+}
+
+.booking-logo {
+  width:100px
+}
+
+.booking-logo i {
+  background-color: $barbie-pink;
+  color: white;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0 0 2px #888;
+  padding: 0.6em 0.6em;
+  text-align: center;
+}
+
+.booking-photo {
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  object-fit: cover;
+}
+
+.booking-info {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.booking-info i {
+  margin-right: 10px;
+}
+
+.booking-details {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+.booking-details p {
+  margin: 0px
+}
+
+.booking-actions i {
+  text-decoration: none;
+  color: $framboise;
+  text-align: center;
+}

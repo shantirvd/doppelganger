@@ -1,11 +1,28 @@
-<% @user_bookings.each do |user_booking| %>
-  <ul>
-    <li><%= user_booking.start_time %></li>
-    <li><%= user_booking.end_time %></li>
-    <li><%= user_booking.location %></li>
-    <li><%= user_booking.status %></li>
-    <%= cl_image_tag user_booking.drag.photo.key, class: "card-img" %>
-    <%= link_to 'Edit booking', edit_drag_booking_path(user_booking.drag, user_booking) %>
-    <%= link_to 'Delete booking', booking_path(user_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-  </ul>
-<% end %>
+<div class="booking-cards">
+  <% @user_bookings.each do |user_booking| %>
+    <div class="drag-booking-card">
+      <div>
+        <%= cl_image_tag user_booking.drag.photo.key, class: "booking-photo" %>
+      </div>
+      <div class="booking-info">
+        <h5>Booking on ***date** </h5>
+        <div class="booking-details">
+          <p>with <%= user_booking.drag.nickname %></p>
+          <p>From <%= user_booking.start_time %> to <%= user_booking.end_time %></p>
+        </div>
+        <p><i class="fa-solid fa-location-pin"></i><%= user_booking.location %></p>
+      </div>
+      <div class="booking-actions">
+          <p><%= user_booking.status %></p>
+          <div>
+            <%= link_to edit_drag_booking_path(user_booking.drag, user_booking) do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to booking_path(user_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} do %>
+              <i class="fa-solid fa-ban"></i>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>
