@@ -33,6 +33,7 @@ class DragsController < ApplicationController
 
   def show
     @drag = Drag.find(params[:id])
+    @booking = Booking.new
     authorize @drag
   end
 

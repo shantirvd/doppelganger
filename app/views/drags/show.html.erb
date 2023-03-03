@@ -10,6 +10,7 @@
       <div class="specialty-tag"><%= @drag.city %> <em>(around <%= @drag.radius %>km)</em></div>
     </div>
     <p><%= @drag.description %></p>
-    <%= link_to 'Book now', new_drag_booking_path(@drag) %>
+  <%# <%= link_to 'Book now', new_drag_booking_path(@drag), class: "button w-50 mx-auto"%>
+  <%= render "bookings/form", drag: @drag, booking: @booking%>
   </div>
 </div>
