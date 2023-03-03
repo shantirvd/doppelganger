@@ -10,16 +10,20 @@
           <p>with <%= user_booking.drag.nickname %></p>
           <p>From <%= user_booking.start_time %> to <%= user_booking.end_time %></p>
         </div>
-        <p><i class="fa-solid fa-location-pin"></i><%= user_booking.location %></p>
-        <%= (user_booking.end_time[0..1].to_i - user_booking.start_time[0..1].to_i) * user_booking.drag.hourly_rate %>
+        <p>
+          <i class="fa-solid fa-location-pin"></i><%= user_booking.location %>
+        </p>
+        <p>
+          <i class="fa-solid fa-credit-card"></i><%= (user_booking.end_time[0..1].to_i - user_booking.start_time[0..1].to_i) * user_booking.drag.hourly_rate %>€
+        </p>
       </div>
       <div class="booking-actions">
           <p><%= user_booking.status %></p>
-          <div>
-            <%= link_to edit_drag_booking_path(user_booking.drag, user_booking) do %>
+          <div class="d-flex justify-content-evenly">
+            <%= link_to edit_drag_booking_path(user_booking.drag, user_booking), class: "text-decoration-none" do %>
               <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
-            <%= link_to booking_path(user_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} do %>
+            <%= link_to booking_path(user_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"}, class: "text-decoration-none" do %>
               <i class="fa-solid fa-ban"></i>
             <% end %>
           </div>
