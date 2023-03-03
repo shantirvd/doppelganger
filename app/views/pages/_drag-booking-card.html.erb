@@ -5,11 +5,12 @@
         <i class="fa-solid fa-crown"></i>
       </div>
       <div class="booking-info">
-        <h5>Booking on ***date** </h5>
+        <h5>Booking on <%= drag_booking.booking_date %> </h5>
         <p>From <%= drag_booking.start_time %> to <%= drag_booking.end_time %></p>
         <span>
           <i class="fa-solid fa-location-pin"></i><%= drag_booking.location %>
         </span>
+         <%= (user_booking.end_time[0..1].to_i - user_booking.start_time[0..1].to_i) * user_booking.drag.hourly_rate %>
       </div>
       <div class="booking-actions">
           <p><%= drag_booking.status %></p>
@@ -23,5 +24,7 @@
           </div>
       </div>
     </div>
+    <%= link_to 'Accept booking', accept_path(user_booking), data: {turbo_method: :patch} %>
+    <%= link_to 'Decline booking', decline_path(user_booking), data: {turbo_method: :patch} %>
   <% end %>
 </div>

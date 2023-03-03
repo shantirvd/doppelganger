@@ -5,12 +5,13 @@
         <%= cl_image_tag user_booking.drag.photo.key, class: "booking-photo" %>
       </div>
       <div class="booking-info">
-        <h5>Booking on ***date** </h5>
+        <h5>Booking on <%= user_booking.booking_date %> </h5>
         <div class="booking-details">
           <p>with <%= user_booking.drag.nickname %></p>
           <p>From <%= user_booking.start_time %> to <%= user_booking.end_time %></p>
         </div>
         <p><i class="fa-solid fa-location-pin"></i><%= user_booking.location %></p>
+        <%= (user_booking.end_time[0..1].to_i - user_booking.start_time[0..1].to_i) * user_booking.drag.hourly_rate %>
       </div>
       <div class="booking-actions">
           <p><%= user_booking.status %></p>

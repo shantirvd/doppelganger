@@ -1,8 +1,29 @@
 <div class="container form">
   <h1>New booking</h1>
-  <%= simple_form_for [@drag, @booking] do |f| %>
-    <%= f.input :start_time, as: :date %>
-    <%= f.input :end_time, as: :date %>
+  <%= simple_form_for [@drag, @booking],
+                       html: {
+                        data: {
+                          controller: 'flatpickr'
+                      }
+                    } do |f| %>
+    <%= f.input :booking_date,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'bookingDateInput',
+} } %>
+    <%= f.input :start_time,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'startTimeInput',
+} } %>
+    <%= f.input :end_time,
+                as: :string,
+                input_html: {
+                  data: {
+                    flatpickr_target: 'endTimeInput',
+} } %>
     <%= f.input :location %>
     <%= f.submit "Book now", class: "button" %>
   <% end %>
