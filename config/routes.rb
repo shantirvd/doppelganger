@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:destroy]
   get "/dashboard", to: "pages#dashboard"
-  # patch "/dashboard", to: "drags#confirm"
-  # patch "/dashboard", to: "drags#decline"
+  patch "bookings/:id/accept", to: "bookings#accept", as: :accept
+  patch "bookings/:id/decline", to: "bookings#decline", as: :decline
 end
