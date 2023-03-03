@@ -1,5 +1,7 @@
 <% @user_bookings.each do |user_booking| %>
   <ul>
+    <li><%= (user_booking.end_time[0..1].to_i - user_booking.start_time[0..1].to_i) * user_booking.drag.hourly_rate %></li>
+    <li><%= user_booking.booking_date %></li>
     <li><%= user_booking.start_time %></li>
     <li><%= user_booking.end_time %></li>
     <li><%= user_booking.location %></li>

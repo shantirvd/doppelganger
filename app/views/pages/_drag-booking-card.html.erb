@@ -1,7 +1,8 @@
 <% @drag_bookings.each do |drag_booking| %>
   <ul>
+    <li class="text-warning"><%= drag_booking.booking_date %></li>
     <li class="text-warning"><%= drag_booking.start_time %></li>
-    <li><%= drag_booking.end_time %></li>
+    <li class="text-warning"><%= drag_booking.end_time %></li>
     <li><%= drag_booking.location %></li>
     <li><%= drag_booking.status %></li>
     <%= cl_image_tag drag_booking.drag.photo.key, class: "card-img" %>
