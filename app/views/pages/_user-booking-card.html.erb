@@ -4,6 +4,8 @@
     <li><%= user_booking.end_time %></li>
     <li><%= user_booking.location %></li>
     <li><%= user_booking.status %></li>
+    <%= link_to 'Accept booking', accept_path(user_booking), data: {turbo_method: :patch} %>
+    <%= link_to 'Decline booking', decline_path(user_booking), data: {turbo_method: :patch} %>
     <%= cl_image_tag user_booking.drag.photo.key, class: "card-img" %>
     <%= link_to 'Edit booking', edit_drag_booking_path(user_booking.drag, user_booking) %>
     <%= link_to 'Delete booking', booking_path(user_booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure"} %>
